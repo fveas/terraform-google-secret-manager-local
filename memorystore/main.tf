@@ -73,9 +73,7 @@ resource "google_redis_instance" "default" {
 }
 
 module "enable_apis" {
-  source  = "terraform-google-modules/project-factory/google//modules/project_services"
-  version = "~> 14.0"
-
+  source  = "github.com/fveas/terraform-google-secret-manager-local/project_services"
   project_id                  = var.project
   enable_apis                 = var.enable_apis
   disable_services_on_destroy = false
